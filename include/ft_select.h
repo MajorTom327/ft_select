@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:26:15 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/03 03:21:13 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/03 03:28:16 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct	s_env
 {
 	struct termios	termios;
+	char			*term_name;
 }				t_env;
 
 void	getsetting(void);
