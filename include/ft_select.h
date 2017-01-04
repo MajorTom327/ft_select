@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:26:15 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 01:02:28 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/04 02:25:18 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ typedef struct	s_env
 }				t_env;
 
 int				output(int c);
+int				ft_tcstr(const char *str);
 
+t_termios		save_term(t_termios term, int status);
 t_env			*s_init(char **environ);
 t_env			*set_option(t_env *env);
-t_termios		save_term(t_termios term, int status);
 int				set_signal(void);
-int				sign_handler(int sig);
+void			sign_handler(int sig);
 #endif

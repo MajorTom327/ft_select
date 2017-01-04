@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:14:11 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 00:19:30 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/04 02:08:02 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 int	main(int ac, char **av, char **environ)
 {
 	char	*buf;
-	char	*cmd;
 	t_env	*env;
 
 	dbg_title("init start");
@@ -31,6 +30,7 @@ int	main(int ac, char **av, char **environ)
 	while (1)
 	{
 		//input_read(&buf);
+		sleep(10000);
 		ft_strdel(&buf);
 	}
 	return (0);
