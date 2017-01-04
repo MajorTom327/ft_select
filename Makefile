@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2017/01/04 02:07:36 by vthomas          ###   ########.fr        #
+#    Updated: 2017/01/04 02:34:03 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,8 +84,8 @@ test: all
 	@clear
 	@clear > $(DBG_OUTPUT)
 	@echo "\033[32;4m`date`\033[0m\n" >> $(DBG_OUTPUT)
-	ls -1 | ./$(NAME) 2>> $(DBG_OUTPUT)
-#	env -i ./$(NAME) 2>> $(DBG_OUTPUT)
+	./$(NAME) 2>> $(DBG_OUTPUT)
+#	ls | ./$(NAME) 2>> $(DBG_OUTPUT)
 
 norme:
 	@make -C libft norme

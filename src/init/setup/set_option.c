@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 00:22:51 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 02:08:18 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/04 02:37:53 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ t_env	*set_option(t_env *env)
 	env->term = env->def_term;
 	env->term.c_lflag &= ~(ICANON);
 	tcsetattr(0, TCSANOW, &(env->term));
+	dbg_info("set_option", "terminal set", 2);
 	save_term(env->term, 1);
+	dbg_info("set_option", "terminal saved", 2);
 	set_signal();
 	return (env);
 }

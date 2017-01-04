@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 00:48:05 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 02:26:05 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/04 02:38:56 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sign_handler(int sig)
 	term = (t_termios *)ft_memalloc(sizeof(t_termios));
 	*term = save_term(*term, 0);
 	tcsetattr(0, TCSANOW, term);
-	ft_memdel((void **)term);
+	ft_memdel((void **)&term);
 	exit(0);
 }
 

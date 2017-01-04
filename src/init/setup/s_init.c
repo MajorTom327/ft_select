@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 00:06:54 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 00:24:16 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/04 02:36:27 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_env	*s_init(char **environ)
 	if (env == NULL)
 		return (NULL);
 	i = 0;
+	dbg_info("s_init", "malloc env", 2);
 	while (environ[i])
 	{
 		if (ft_strncmp(environ[i], "TERM=", 5) == 0)
@@ -31,6 +32,7 @@ t_env	*s_init(char **environ)
 		}
 		i++;
 	}
+	dbg_var_str("s_init", "terminal definition found", env->term_name, 2);
 	if (environ[i] == NULL)
 		return (NULL);
 	return (set_option(env));
