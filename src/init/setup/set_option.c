@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   set_option.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 01:14:11 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 00:19:30 by vthomas          ###   ########.fr       */
+/*   Created: 2017/01/04 00:22:51 by vthomas           #+#    #+#             */
+/*   Updated: 2017/01/04 01:06:59 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <get_next_line.h>
 #include <ft_select.h>
-#include <term.h>
+#include <libft.h>
 #include <termios.h>
 
-int	main(int ac, char **av, char **environ)
+t_env	*set_option(t_env *env)
 {
-	char	*buf;
-	char	*cmd;
-	t_env	*env;
-
-	dbg_title("init start");
-	env = s_init(environ);
-	dbg_title("init end");
-	buf = NULL;
-	dbg_title("While start");
-	dbg_var_str("main", "term_name", env->term_name, 1);
-	while (1)
-	{
-		//input_read(&buf);
-		ft_strdel(&buf);
-	}
-	return (0);
+	if (tgetent(NULL, env->term_name) <= 0)
+		return (NULL);
+	tcgetattr(0, &(env->def_term));
+	env->term = env->def_term;
+	env->term.c_lflag &= ~(ICANON | ECHO);
+	tcsetattr(0, TCSANOW, &(env->term));
+	save_term(env->term, 1);
+	set_signal();
+	return (env);
 }

@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_read.c                                       :+:      :+:    :+:   */
+/*   s_init.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 01:28:15 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/03 04:24:16 by vthomas          ###   ########.fr       */
+/*   Created: 2017/01/04 00:06:54 by vthomas           #+#    #+#             */
+/*   Updated: 2017/01/04 00:24:16 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 #include <ft_select.h>
 #include <libft.h>
 
-/*
-** This file containnig a modded version of get_next_line for get a full command
-** with cannonical implementation and parsing for the signalslike '^L'
-*/
-
-int			input_read(char **line)
+t_env	*s_init(char **environ)
 {
-	int		ret;
-	char	*tmp;
+	t_env	*env;
+	int		i;
 
-	if (line == NULL)
-		return (-1);
-	*line = ft_strnew(0);
-	ret = 4;
-	tmp = ft_strnew(4);
-	ret = read(0, tmp, 4);
-	if (ret == -1)
-		return (-1);
-	tmp[ret] = '\0';
-	input(tmp);
-	return (0);
+	env = (t_env *)ft_memalloc(sizeof(t_env));
+	if (env == NULL)
+		return (NULL);
+	i = 0;
+	while (environ[i])
+	{
+		if (ft_strncmp(environ[i], "TERM=", 5) == 0)
+		{
+			env->term_name = ft_strdup(&environ[i][5]);
+			break;
+		}
+		i++;
+	}
+	if (environ[i] == NULL)
+		return (NULL);
+	return (set_option(env));
 }

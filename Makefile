@@ -6,24 +6,29 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2017/01/03 02:25:37 by vthomas          ###   ########.fr        #
+#    Updated: 2017/01/04 01:00:03 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=ft_select
 
 SRC_NAME = main.c\
-		   init/getsetting.c\
-		   init/init_default.c\
-		   input/input.c\
-		   input/input_read.c
+		   init/setup/s_init.c\
+		   init/setup/save_term.c\
+		   init/setup/set_option.c\
+		   init/setup/set_signal.c\
+		   other/output.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
 DBG_OUTPUT = /dev/ttys001
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
-OBJ_SUB = init input
+OBJ_SUB = init\
+		  init/input\
+		  init/setup\
+		  loop\
+		  other
 
 SRC=$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ=$(addprefix $(OBJ_PATH),$(OBJ_NAME))

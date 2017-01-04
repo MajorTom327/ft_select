@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   output.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 01:14:11 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 00:19:30 by vthomas          ###   ########.fr       */
+/*   Created: 2017/01/04 00:08:30 by vthomas           #+#    #+#             */
+/*   Updated: 2017/01/04 00:20:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <get_next_line.h>
 #include <ft_select.h>
-#include <term.h>
-#include <termios.h>
+#include <unistd.h>
 
-int	main(int ac, char **av, char **environ)
+int	output(int c)
 {
-	char	*buf;
-	char	*cmd;
-	t_env	*env;
-
-	dbg_title("init start");
-	env = s_init(environ);
-	dbg_title("init end");
-	buf = NULL;
-	dbg_title("While start");
-	dbg_var_str("main", "term_name", env->term_name, 1);
-	while (1)
-	{
-		//input_read(&buf);
-		ft_strdel(&buf);
-	}
+	write(1, (char *)&c, 1);
 	return (0);
 }

@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.h                                        :+:      :+:    :+:   */
+/*   save_term.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 01:26:15 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 01:02:28 by vthomas          ###   ########.fr       */
+/*   Created: 2017/01/04 00:57:10 by vthomas           #+#    #+#             */
+/*   Updated: 2017/01/04 01:03:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_SELECT_H
-# define FT_SELECT_H
+#include <unistd.h>
 
-# include <termios.h>
-# include <debug.h>
+#include <ft_select.h>
 
-typedef struct termios	t_termios;
-
-typedef struct	s_env
+t_termios	save_term(t_termios term, int status)
 {
-	t_termios	term;
-	t_termios	def_term;
-	char		*term_name;
-}				t_env;
+	static t_termios	m_term;
 
-int				output(int c);
-
-t_env			*s_init(char **environ);
-t_env			*set_option(t_env *env);
-t_termios		save_term(t_termios term, int status);
-int				set_signal(void);
-int				sign_handler(int sig);
-#endif
+	if (status)
+		m_term = term;
+	return (m_term);
+}
