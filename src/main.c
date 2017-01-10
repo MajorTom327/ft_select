@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:14:11 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 10:34:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 10:54:58 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ int	main(int ac, char **av, char **environ)
 	char	buf[5];
 	int		ret;
 	t_env	*env;
+	t_key	*k;
 
 //	dbg_title("init start");
-	i_init();
+	k = i_init();
+	print_key(k);
 	if ((env = s_init(environ)) == NULL)
 		return (-1);
 //	dbg_title("init end");

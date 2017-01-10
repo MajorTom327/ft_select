@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_signal.c                                       :+:      :+:    :+:   */
+/*   print_key.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/04 00:48:05 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 10:40:43 by vthomas          ###   ########.fr       */
+/*   Created: 2017/01/10 10:52:38 by vthomas           #+#    #+#             */
+/*   Updated: 2017/01/10 10:56:31 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_select.h>
+#include <key.h>
 #include <libft.h>
 
-#include <termios.h>
-#include <term.h>
-
-#include <stdlib.h>
-#include <signal.h>
-
-void	sign_handler(int sig)
+int	print_key(t_key *k)
 {
-	char	*str;
-
-	dbg_info("sign_handler", "Received a signal...", 2);
-	ft_tcstr("ve");
-	exit(0);
-}
-
-int		set_signal(void)
-{
-	int i;
-
-	i = 0;
-	while (i < 20)
+	ft_putendl("\033[34m[   START   ]\033[0m");
+	while (k)
 	{
-		signal(i, sign_handler);
-		i++;
+		ft_putendl(k->value);
+		k = k->next;
 	}
+	ft_putendl("\033[34m[    END    ]\033[0m");
 	return (0);
 }

@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_signal.c                                       :+:      :+:    :+:   */
+/*   key.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/04 00:48:05 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 10:40:43 by vthomas          ###   ########.fr       */
+/*   Created: 2017/01/10 10:36:02 by vthomas           #+#    #+#             */
+/*   Updated: 2017/01/10 10:37:31 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_select.h>
-#include <libft.h>
+#ifndef KEY_H
+# define KEY_H
 
-#include <termios.h>
-#include <term.h>
-
-#include <stdlib.h>
-#include <signal.h>
-
-void	sign_handler(int sig)
+typedef struct	s_key
 {
-	char	*str;
+	struct s_key	*next;
+	char			*value;
+}				t_key;
 
-	dbg_info("sign_handler", "Received a signal...", 2);
-	ft_tcstr("ve");
-	exit(0);
-}
-
-int		set_signal(void)
-{
-	int i;
-
-	i = 0;
-	while (i < 20)
-	{
-		signal(i, sign_handler);
-		i++;
-	}
-	return (0);
-}
+#endif

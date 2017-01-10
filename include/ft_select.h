@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:26:15 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 10:28:16 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 10:54:20 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <termios.h>
 # include <debug.h>
+# include <key.h>
 
 typedef struct termios	t_termios;
 
@@ -28,7 +29,9 @@ typedef struct	s_env
 int				output(int c);
 int				ft_tcstr(const char *str);
 
-int				i_init(void);
+int				print_key(t_key *k);
+
+t_key			*i_init(void);
 
 t_termios		save_term(t_termios term, int status);
 t_env			*s_init(char **environ);
