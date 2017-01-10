@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:14:11 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 08:07:03 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 10:34:24 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ int	main(int ac, char **av, char **environ)
 	int		ret;
 	t_env	*env;
 
-	dbg_title("init start");
+//	dbg_title("init start");
+	i_init();
 	if ((env = s_init(environ)) == NULL)
 		return (-1);
-	dbg_title("init end");
+//	dbg_title("init end");
 	//buf = NULL;
-	dbg_title("While start");
+//	dbg_title("While start");
 	dbg_var_str("main", "term_name", env->term_name, 1);
 	while (1)
 	{

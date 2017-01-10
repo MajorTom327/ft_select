@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_option.c                                       :+:      :+:    :+:   */
+/*   i_init.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/04 00:22:51 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 10:29:18 by vthomas          ###   ########.fr       */
+/*   Created: 2017/01/10 10:26:13 by vthomas           #+#    #+#             */
+/*   Updated: 2017/01/10 10:33:14 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_select.h>
+#include <get_next_line.h>
 #include <libft.h>
-#include <termios.h>
-#include <term.h>
 
-t_env	*set_option(t_env *env)
+int	i_init(void)
 {
-	char	*str;
-	if (tgetent(NULL, env->term_name) <= 0)
-		return (NULL);
-	tcgetattr(0, &(env->def_term));
-	env->term = env->def_term;
-	env->term.c_lflag &= ~(ICANON);
-	tcsetattr(0, TCSANOW, &(env->term));
-	dbg_info("set_option", "terminal set", 2);
-	save_term(env->term, 1);
-	dbg_info("set_option", "terminal saved", 2);
-	set_signal();
-	ft_tcstr("vi");
-	return (env);
+	int		ret;
+	char	*buf;
+
+	while ((ret = get_next_line(0, &buf)) > 0)
+	{
+		//ret = get_next_line(0, &buf);
+		dbg_var_str("i_init", "buf", buf, 2);
+		ft_strdel(&buf);
+	}
 }

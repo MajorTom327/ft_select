@@ -6,17 +6,19 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2017/01/04 02:34:03 by vthomas          ###   ########.fr        #
+#    Updated: 2017/01/10 10:34:37 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=ft_select
 
 SRC_NAME = main.c\
+		   init/input/i_init.c\
 		   init/setup/s_init.c\
 		   init/setup/save_term.c\
 		   init/setup/set_option.c\
 		   init/setup/set_signal.c\
+		   other/get_next_line.c\
 		   other/output.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
@@ -84,8 +86,8 @@ test: all
 	@clear
 	@clear > $(DBG_OUTPUT)
 	@echo "\033[32;4m`date`\033[0m\n" >> $(DBG_OUTPUT)
-	./$(NAME) 2>> $(DBG_OUTPUT)
-#	ls | ./$(NAME) 2>> $(DBG_OUTPUT)
+#	./$(NAME) 2>> $(DBG_OUTPUT)
+	ls | ./$(NAME) 2>> $(DBG_OUTPUT)
 
 norme:
 	@make -C libft norme

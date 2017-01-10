@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 00:48:05 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 08:06:26 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 10:28:41 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void	sign_handler(int sig)
 	char	*str;
 
 	dbg_info("sign_handler", "Received a signal...", 2);
-	str = tgetstr("ve", NULL);
-	tputs(str, 0, output);
+	ft_tcstr("ve");
+//	str = tgetstr("ve", NULL);
+//	tputs(str, 0, output);
 	exit(0);
 }
 
