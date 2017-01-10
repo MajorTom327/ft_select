@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 00:22:51 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 02:37:53 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 08:02:56 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 t_env	*set_option(t_env *env)
 {
+	char	*str;
 	if (tgetent(NULL, env->term_name) <= 0)
 		return (NULL);
 	tcgetattr(0, &(env->def_term));
@@ -27,5 +28,7 @@ t_env	*set_option(t_env *env)
 	save_term(env->term, 1);
 	dbg_info("set_option", "terminal saved", 2);
 	set_signal();
+	str = tgetstr("vi", NULL);
+	tputs(str, 0, output);
 	return (env);
 }

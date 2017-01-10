@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 00:48:05 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 02:38:56 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/10 08:06:26 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 #include <libft.h>
 
 #include <termios.h>
+#include <term.h>
 
 #include <stdlib.h>
 #include <signal.h>
 
 void	sign_handler(int sig)
 {
-	t_termios *term;
+	char	*str;
 
 	dbg_info("sign_handler", "Received a signal...", 2);
-	term = (t_termios *)ft_memalloc(sizeof(t_termios));
-	*term = save_term(*term, 0);
-	tcsetattr(0, TCSANOW, term);
-	ft_memdel((void **)&term);
+	str = tgetstr("ve", NULL);
+	tputs(str, 0, output);
 	exit(0);
 }
 
-int	set_signal(void)
+int		set_signal(void)
 {
 	int i;
 
