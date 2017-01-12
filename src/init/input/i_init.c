@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 10:26:13 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/12 10:08:32 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 10:37:33 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_key	*i_init(void)
 		tmp->next = NULL;
 		tmp->value = ft_strdup(buf);
 		tmp->next = (t_key *)ft_memalloc(sizeof(t_key));
-		tmp->status = 0;
+		tmp->status = F_NONE;
 		tmp = tmp->next;
 		ft_strdel(&buf);
 	}

@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2017/01/12 07:55:05 by vthomas          ###   ########.fr        #
+#    Updated: 2017/01/12 10:21:54 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC_NAME = main.c\
 		   init/setup/set_option.c\
 		   init/setup/set_signal.c\
 		   other/get_next_line.c\
-		   other/output.c
+		   other/output.c\
+		   other/print.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.h                                              :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/10 10:36:02 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/12 10:33:43 by vthomas          ###   ########.fr       */
+/*   Created: 2017/01/12 10:17:45 by vthomas           #+#    #+#             */
+/*   Updated: 2017/01/12 10:35:14 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_H
-# define KEY_H
-# define F_NONE		0x00
-# define F_SELECTED	0x01
-# define F_CURSOR	0x02
+#include <ft_select.h>
+#include <key.h>
 
-typedef struct	s_key
+#include <libft.h>
+
+#include <termios.h>
+#include <term.h>
+
+int	print(t_key *k)
 {
-	char			*value;
-	int				status;
-	struct s_key	*next;
-}				t_key;
+	t_key *cur;
 
-#endif
+	cur = k;
+	//ft_tcstr("cl");
+	while (cur)
+	{
+		if (cur->status & F_SELECTED)
+			ft_tcstr("mr");
+		if (cur->status & F_CURSOR)
+			ft_tcstr("us");
+		ft_putendl(cur->value);
+		if (cur->status & F_SELECTED)
+			ft_tcstr("me");
+		cur = cur->next;
+	}
+}

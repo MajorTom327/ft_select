@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:26:15 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 10:54:20 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 10:21:38 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_env
 
 int				output(int c);
 int				ft_tcstr(const char *str);
+int				print(t_key *k);
 
 int				print_key(t_key *k);
 

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:14:11 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 10:54:58 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 10:29:00 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int ac, char **av, char **environ)
 	//buf = NULL;
 //	dbg_title("While start");
 	dbg_var_str("main", "term_name", env->term_name, 1);
+	print(k);
 	while (1)
 	{
 		ret = read(0, buf, 4);
