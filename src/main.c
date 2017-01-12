@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:14:11 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/12 11:10:26 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 12:50:07 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,23 @@ int	main(int ac, char **av, char **environ)
 	t_key	*k;
 
 	k = i_init();
-	print_key(k);
 	if ((env = s_init(environ)) == NULL)
 		return (-1);
+	env->k = k;
 	dbg_var_str("main", "term_name", env->term_name, 1);
-	print(k);
+	print(env->k);
 	while (1)
 	{
 		ret = read(0, buf, 3);
 		buf[ret] = '\0';
 		if (buf[0] == 4)
 			sign_handler(0);
-		if (buf[0] != 0)
+		if (ret)
 		{
 			dbg_var_int("main", "buf[0]", buf[0], 2);
 			dbg_var_int("main", "buf[1]", buf[1], 2);
 			dbg_var_int("main", "buf[2]", buf[2], 2);
+			print(env->k);
 		}
 		//print(k);
 		//input_read(&buf);

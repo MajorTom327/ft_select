@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 10:17:45 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/12 10:35:14 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 12:46:15 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	print(t_key *k)
 	t_key *cur;
 
 	cur = k;
-	//ft_tcstr("cl");
+	ft_tcstr("cl");
 	while (cur)
 	{
 		if (cur->status & F_SELECTED)
