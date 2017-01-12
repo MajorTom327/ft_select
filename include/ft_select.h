@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:26:15 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/12 13:24:33 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 14:28:30 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int				print(t_key *k);
 
 int				print_key(t_key *k);
 int				move(t_env *env, int dir);
+int				select_switch(t_env *env);
 
 t_key			*i_init(void);
 

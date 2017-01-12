@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/03 01:14:11 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/12 14:13:47 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 14:30:58 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ int	main(int ac, char **av, char **environ)
 		{
 			if (buf[0] == 27)
 				move(env, buf[2]);
+			else if (buf[0] == 32)
+				select_switch(env);
+			dbg_var_int("main", "buf[0]", buf[0], 2);
+			dbg_var_int("main", "buf[1]", buf[1], 2);
+			dbg_var_int("main", "buf[2]", buf[2], 2);
 			print(env->k);
 		}
 		//print(k);
