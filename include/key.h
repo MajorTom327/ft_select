@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 10:36:02 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 10:37:31 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 10:00:38 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 typedef struct	s_key
 {
-	struct s_key	*next;
 	char			*value;
+	int				status;
+	struct s_key	*next;
 }				t_key;
 
 #endif

@@ -6,39 +6,39 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 10:26:13 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/10 11:03:04 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 10:08:32 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_select.h>
 #include <get_next_line.h>
+
 #include <libft.h>
 #include <key.h>
 
 t_key	*i_init(void)
 {
-	int		ret;
+	t_key	*key;
+	t_key	*tmp;
+	t_key	*last;
 	char	*buf;
-	t_key	*k;
-	t_key	*current;
-	t_key	*old;
+	int		ret;
 
-	k = (t_key *)ft_memalloc(sizeof(t_key));
-	current = k;
+	key = (t_key *)ft_memalloc(sizeof(t_key));
+	tmp = key;
+	ret = 0;
+	buf = NULL;
 	while ((ret = get_next_line(0, &buf)) > 0)
 	{
-		dbg_var_str("i_init", "buf", buf, 2);
-		//current->next = (t_key *)ft_memalloc(sizeof(t_key));
-		dbg_var_str("i_init", "buf", buf, 2);
-		//current = current->next;
-		dbg_var_str("i_init", "buf", buf, 2);
-		current->value = ft_strdup("");
-		dbg_var_str("i_init", "buf", buf, 2);
+		last = tmp;
+		tmp->next = NULL;
+		tmp->value = ft_strdup(buf);
+		tmp->next = (t_key *)ft_memalloc(sizeof(t_key));
+		tmp->status = 0;
+		tmp = tmp->next;
 		ft_strdel(&buf);
 	}
-	old = k;
-	k = k->next;
-	ft_strdel(&(old->value));
-	ft_memdel((void **)&old);
-	return (k);
+	ft_strdel(&buf);
+	last->next = NULL;
+	ft_memdel(&tmp);
+	return (key);
 }

@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2017/01/10 10:53:55 by vthomas          ###   ########.fr        #
+#    Updated: 2017/01/12 07:55:05 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,8 @@ FMW =
 
 CC = clang
 
-#CFLAGS = -Wall -Wextra -Weverything -Wno-missing-noreturn -g -Wno-padded
-CFLAGS = -Wall -Wextra -g -Wno-unused-parameter -Ofast -Os
+CFLAGS = -Wall -Wextra -Weverything -Wno-missing-noreturn -g -Wno-padded
+#CFLAGS = -Wall -Wextra -g -Wno-unused-parameter -Ofast -Os
 
 all: $(NAME)
 
