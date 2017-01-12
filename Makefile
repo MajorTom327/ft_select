@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/02 01:49:59 by vthomas           #+#    #+#              #
-#    Updated: 2017/01/12 12:26:52 by vthomas          ###   ########.fr        #
+#    Updated: 2017/01/12 13:16:00 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC_NAME = main.c\
 		   init/setup/save_term.c\
 		   init/setup/set_option.c\
 		   init/setup/set_signal.c\
+		   loop/move.c\
 		   other/get_next_line.c\
 		   other/output.c\
 		   other/print.c

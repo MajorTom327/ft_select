@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 10:17:45 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/12 12:46:15 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 13:06:32 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	print(t_key *k)
 		if (cur->status & F_CURSOR)
 			ft_tcstr("us");
 		ft_putendl(cur->value);
+		if (cur->status & F_CURSOR)
+			ft_tcstr("ue");
 		if (cur->status & F_SELECTED)
 			ft_tcstr("me");
 		cur = cur->next;

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 00:06:54 by vthomas           #+#    #+#             */
-/*   Updated: 2017/01/04 02:36:27 by vthomas          ###   ########.fr       */
+/*   Updated: 2017/01/12 12:52:32 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ t_env	*s_init(char **environ)
 	dbg_var_str("s_init", "terminal definition found", env->term_name, 2);
 	if (environ[i] == NULL)
 		return (NULL);
+		env->pos = 0;
 	return (set_option(env));
 }
